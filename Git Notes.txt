@@ -1,0 +1,8 @@
+
+// every time before  start work use 'git  pull'  then start modify content  else you may got error !
+git pull
+
+
+git add .
+git commit -m "app"
+git push

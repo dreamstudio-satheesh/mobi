@@ -1,0 +1,89 @@
+/**=====================
+  2.23 Popover CSS Start
+==========================**/
+.popover-main {
+  .btn-showcase {
+    a {
+      color: $white;
+    }
+    button {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.popover {
+  background-color: $white;
+  border: none;
+  -webkit-box-shadow: 0 0 20px rgba($primary-color, 0.1);
+  box-shadow: 0 0 20px rgba($primary-color, 0.1);
+  .popover-header {
+    background-color: $light-primary;
+    color: var(--theme-default);
+    border-bottom: none;
+  }
+  .popover-body {
+    color: rgba(43, 43, 43, 0.7);
+  }
+}
+.bs-popover-end {
+	>.popover-arrow {
+		&::after {
+			border-right-color: $white;
+		}
+	}
+}
+.bs-popover-auto[data-popper-placement^=right] {
+	>.popover-arrow {
+		&::after {
+			border-right-color: $white;
+		}
+	}
+}
+.bs-popover-top {
+	>.popover-arrow {
+		&::after {
+			border-top-color: $white;
+		}
+	}
+}
+.bs-popover-auto[data-popper-placement^=top] {
+	>.popover-arrow {
+		&::after {
+			border-top-color: $white; 
+		}
+	}
+}
+.bs-popover-bottom {
+	>.popover-arrow {
+		&::after {
+			border-bottom-color: $white;
+		}
+	}
+}
+.bs-popover-auto[data-popper-placement^=bottom] {
+	>.popover-arrow {
+		&::after {
+			border-bottom-color: $white;
+		}
+	}
+}
+.bs-popover-start {
+	>.popover-arrow {
+		&::after {
+			border-left-color: $white;
+		}
+	}
+}
+.bs-popover-auto[data-popper-placement^=left] {
+	>.popover-arrow {
+		&::after {
+			border-left-color: $white;
+		}
+	}
+}
+
+/**=====================
+  2.23 Popover CSS Ends
+==========================**/
