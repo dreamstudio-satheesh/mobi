@@ -81,7 +81,7 @@
                             <li><a href="{{ url('inventory/detail') }}">Details</a></li>
                             <li><a href="{{ url('inventory/create') }}">Add/Edit Item</a></li>
                             <li><a href="{{ url('inventory/barcode') }}">Barcode Scanning</a></li>
-                            <li><a href="{{ url('inventory/suppliers') }}">Supplier Management</a></li>
+                            <li><a href="{{ url('/admin/category') }}">Category</a></li>
                         </ul>
                     </li>
 
