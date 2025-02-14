@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Livewire\CategoryManager;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\ManageCustomer;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -17,6 +19,13 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
 
     // Roles
     Route::resource('role', App\Http\Controllers\Admin\RoleController::class);
+
+
+
+    Route::get('/customers', ManageCustomer::class)->name('customers.manage');
+
+    Route::get('/category', CategoryManager::class)->name('category.manage');
+
 
     
 

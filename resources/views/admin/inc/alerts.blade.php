@@ -2,6 +2,7 @@
     <div class="toastr-message" data-type="success">{{ session('success') }}</div>
 @endif
 
+
 @if (Session::has('error'))
     <div class="toastr-message" data-type="error">{{ session('error') }}</div>
 @endif
@@ -44,4 +45,4 @@
             }
         });
     });
-</script>
+</script> 

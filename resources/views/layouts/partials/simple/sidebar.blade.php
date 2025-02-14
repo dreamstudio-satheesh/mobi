@@ -23,7 +23,6 @@
             <div class="profile-wrapper">
                 <div class="active-profile">
                     <img class="img-fluid" src="{{ asset('assets/images/user.png') }}" alt="user">
-                    <div class="status bg-success"></div>
                 </div>
                 <div>
                     {{-- Removed User Name --}}
@@ -67,21 +66,6 @@
                             </svg>
                             <span>Dashboard</span>
                         </a>
-                    </li>
-
-                    <!-- User Management -->
-                    <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                            <svg class="stroke-icon">
-                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-user') }}"></use>
-                            </svg>
-                            <span>User Management</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{ url('admin/user') }}">Users List</a></li>{{-- 
-                            <li><a href="{{ url('admin/user/create') }}">Add User</a></li> --}}
-                            <li><a href="{{ url('admin/role') }}">Roles</a></li>
-                        </ul>
                     </li>
 
                     <!-- Inventory Management -->
@@ -140,11 +124,12 @@
                             <svg class="stroke-icon">
                                 <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-user') }}"></use>
                             </svg>
-                            <span>Customers</span>
+                            <span>Peoples</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('customers/list') }}">Customer List</a></li>
-                            <li><a href="{{ url('customers/crm') }}">CRM</a></li>
+                            <li><a href="{{ url('admin/customers') }}">Customer List</a></li>
+                            <li><a href="{{ url('admin/customers/crm') }}">CRM</a></li>
+                            <li><a href="{{ url('admin/suppliers') }}">Suppliers</a></li>
                         </ul>
                     </li>
 
@@ -175,6 +160,20 @@
                         <ul class="sidebar-submenu">
                             <li><a href="{{ url('settings/system') }}">System Settings</a></li>
                             <li><a href="{{ url('settings/integrations') }}">Integration Configurations</a></li>
+                        </ul>
+                    </li>
+
+                      <!-- User Management -->
+                      <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <svg class="stroke-icon">
+                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-user') }}"></use>
+                            </svg>
+                            <span>Staff Management</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{ url('admin/user') }}">Users List</a></li>
+                            <li><a href="{{ url('admin/role') }}">Roles</a></li>
                         </ul>
                     </li>
 
