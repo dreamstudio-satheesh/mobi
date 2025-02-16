@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Livewire\CategoryManager;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\ManageCustomer;
+use App\Http\Livewire\ProductManager;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\CategoryManager;
+use App\Http\Livewire\SupplierManager;
+use App\Http\Livewire\InventoryManager;
 
 Auth::routes();
 
@@ -26,8 +30,14 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
 
     Route::get('/category', CategoryManager::class)->name('category.manage');
 
+    //Suppliers
+    Route::get('/suppliers', SupplierManager::class)->name('suppliers.index');
+   
+    // Inventory manager
+    Route::get('/inventory', InventoryManager::class)->name('inventory.manager');
 
-    
+    // New Product CRUD Livewire route
+   Route::get('/products', ProductManager::class)->name('products.manage');
 
     //Users
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
