@@ -38,7 +38,7 @@
                                         Cancelled</option>
                                 </select>
                             </td>
-                            <td>{{ $order->technician ? $order->technician->name : 'Not Assigned' }}</td>
+                            <td>{{ $order->technician ? $order->technician->first_name : 'Not Assigned' }}</td>
                             <td>
                                 <button wire:click="assignTechnician({{ $order->id }})"
                                     class="btn btn-sm btn-primary">Assign Technician</button>
@@ -66,7 +66,7 @@
                     <select wire:model="selectedTechnician" class="form-control">
                         <option value="">Select Technician</option>
                         @foreach ($technicians as $technician)
-                            <option value="{{ $technician->id }}">{{ $technician->name }}</option>
+                            <option value="{{ $technician->id }}">{{ $technician->first_name }}</option>
                         @endforeach
                     </select>
                 </div>
