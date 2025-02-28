@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Sale;
-use App\Models\SaleItem;
+use App\Models\SalesItem;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\InventoryTransaction;
@@ -91,7 +91,7 @@ class SalesCreate extends Component
         ]);
 
         foreach ($this->cart as $item) {
-            SaleItem::create([
+            SalesItem::create([
                 'sale_id' => $sale->id,
                 'product_id' => $item['id'],
                 'quantity' => $item['quantity'],
@@ -116,7 +116,7 @@ class SalesCreate extends Component
         }
 
         session()->flash('success', 'Sale created successfully.');
-        return redirect()->route('sales.list');
+        return redirect()->route('admin.sales.list');
     }
 
     public function render()
@@ -126,7 +126,7 @@ class SalesCreate extends Component
                 $query->where('name', 'like', "%{$this->search}%")->orWhere('sku', 'like', "%{$this->search}%");
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(8); // Show only 8 products per page
+            ->paginate(6); // Show only 8 products per page
 
         return view('livewire.sales-create', compact('products'));
     }

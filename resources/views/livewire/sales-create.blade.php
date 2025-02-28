@@ -26,16 +26,20 @@
                         <option value="bank_transfer">Bank Transfer</option>
                     </select>
                 </div>
+
+                <div class="col-md-4">
+                    <label>Products</label>
+                    <input type="text" class="form-control mb-3" placeholder="Search products by name or SKU" wire:model="search">
+                </div>
             </div>
 
-            <h5>Products</h5>
-            <input type="text" class="form-control mb-3" placeholder="Search products by name or SKU" wire:model="search">
+            
 
             <div class="row">
                 @foreach ($products as $product)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-2 mb-3">
                         <div class="card">
-                            <div class="card-body text-center">
+                            <div class="p-1 text-center">
                                 <h6>{{ $product->name }}</h6>
                                 <p>₹{{ number_format($product->selling_price, 2) }}</p>
                                 <button class="btn btn-primary btn-sm" wire:click="addProduct({{ $product->id }})">Add</button>
@@ -66,7 +70,7 @@
                             <td>{{ $item['name'] }}</td>
                             <td>₹{{ number_format($item['price'], 2) }}</td>
                             <td>
-                                <input type="number" class="form-control" min="1" wire:model="cart.{{ $item['id'] }}.quantity" wire:change="updateQuantity({{ $item['id'] }}, $event.target.value)">
+                                <input type="number" class="form-control" style="max-width:160px" min="1" wire:model="cart.{{ $item['id'] }}.quantity" wire:change="updateQuantity({{ $item['id'] }}, $event.target.value)">
                             </td>
                             <td>₹{{ number_format($item['subtotal'], 2) }}</td>
                             <td>
