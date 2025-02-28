@@ -16,8 +16,8 @@ class Sale extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function saleItems()
+    public function salesItems()
     {
-        return $this->hasMany(SaleItem::class);
+        return $this->hasMany(SalesItem::class);
     }
 }
