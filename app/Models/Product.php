@@ -20,8 +20,7 @@ class Product extends Model
         'stock', 
         'purchase_price', 
         'selling_price', 
-        'discount', 
-        'currency'
+        'discount'
     ];
 
     /**

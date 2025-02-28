@@ -23,9 +23,8 @@ class ProductManager extends Component
     public $purchase_price;
     public $selling_price;
     public $discount = 0;
-    public $currency = 'USD';
     public $search = '';
-    public $showForm = false; // new property
+    public $showForm = false;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -36,14 +35,12 @@ class ProductManager extends Component
             'supplier_id'    => 'nullable|exists:suppliers,id',
             'name'           => 'required|string|max:255',
             'description'    => 'nullable|string',
-            // Adjust unique rule when updating
             'sku'            => 'required|string|max:255|unique:products,sku,' . $this->productId,
             'condition'      => 'nullable|in:new,refurbished,second-hand',
             'stock'          => 'required|integer|min:0',
             'purchase_price' => 'required|numeric|min:0',
             'selling_price'  => 'required|numeric|min:0',
             'discount'       => 'nullable|numeric|min:0',
-            'currency'       => 'required|string|max:10',
         ];
     }
 
@@ -72,7 +69,6 @@ class ProductManager extends Component
         $this->purchase_price = '';
         $this->selling_price = '';
         $this->discount = 0;
-        $this->currency = 'USD';
         $this->showForm = false;
     }
 
@@ -91,12 +87,11 @@ class ProductManager extends Component
             'purchase_price' => $this->purchase_price,
             'selling_price'  => $this->selling_price,
             'discount'       => $this->discount,
-            'currency'       => $this->currency,
         ]);
 
         session()->flash('message', 'Product ' . ($this->productId ? 'updated' : 'created') . ' successfully!');
         $this->resetInputFields();
-        $this->showForm = false; // hide form after save
+        $this->showForm = false;
     }
 
     public function edit($id)
@@ -113,8 +108,7 @@ class ProductManager extends Component
         $this->purchase_price = $product->purchase_price;
         $this->selling_price  = $product->selling_price;
         $this->discount       = $product->discount;
-        $this->currency       = $product->currency;
-        $this->showForm = true; // show form when editing
+        $this->showForm = true;
     }
 
     public function delete($id)
@@ -126,6 +120,6 @@ class ProductManager extends Component
     public function create()
     {
         $this->resetInputFields();
-        $this->showForm = true; // show form on create
+        $this->showForm = true;
     }
 }

@@ -32,8 +32,6 @@ return new class extends Migration
             $table->decimal('purchase_price', 10, 2);
             $table->decimal('selling_price', 10, 2);
             $table->decimal('discount', 10, 2)->default(0);
-            $table->string('currency', 10)->default('USD');
-
             $table->timestamps();
         });
     }

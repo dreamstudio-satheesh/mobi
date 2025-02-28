@@ -77,11 +77,10 @@
                             <span>Inventory</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('inventory/overview') }}">Overview</a></li>
-                            <li><a href="{{ url('inventory/detail') }}">Details</a></li>
-                            <li><a href="{{ url('inventory/create') }}">Add/Edit Item</a></li>
+                            <li><a href="{{ url('/admin/inventory') }}">Overview</a></li>
                             <li><a href="{{ url('inventory/barcode') }}">Barcode Scanning</a></li>
                             <li><a href="{{ url('/admin/category') }}">Category</a></li>
+                            <li><a href="{{ url('/admin/products') }}">Products</a></li>
                         </ul>
                     </li>
 

@@ -4,8 +4,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5>Categories</h5>
-                    <input wire:model.debounce.live.300ms="search" type="text" class="form-control" placeholder="Search Categories...">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5>Categories</h5>
+                        <input wire:model.debounce.live.300ms="search" type="text" style="max-width: 300px" class="form-control" placeholder="Search Categories...">
+                    </div>
                 </div>
                 <div class="card-body">
                     @if (session()->has('message'))
