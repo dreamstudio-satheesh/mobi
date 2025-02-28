@@ -5,14 +5,15 @@ use App\Livewire\SalesList;
 use App\Livewire\SalesCreate;
 use App\Livewire\RepairOrders;
 use App\Livewire\SalesInvoice;
-use Illuminate\Support\Facades\Auth;
 use App\Livewire\ManageCustomer;
 use App\Livewire\ProductManager;
-use Illuminate\Support\Facades\Route;
+use App\Livewire\RepairProgress;
 use App\Livewire\CategoryManager;
 use App\Livewire\SupplierManager;
 use App\Livewire\InventoryManager;
 use App\Livewire\CreateRepairOrder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
@@ -53,6 +54,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
    // Repair Management
    Route::get('/repairs', RepairOrders::class)->name('repairs.list');
    Route::get('/repairs/create', CreateRepairOrder::class)->name('repairs.create');
+
+   Route::get('/repairs/progress/{repairOrder}', RepairProgress::class)->name('repairs.progress')->middleware('role:repair_technician');
 
     //Users
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);

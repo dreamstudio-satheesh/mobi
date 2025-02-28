@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('priority', ['Low', 'Medium', 'High'])->default('Medium');
             $table->enum('status', ['Pending', 'In Progress', 'Completed', 'Delivered', 'Cancelled'])->default('Pending');
             $table->foreignId('technician_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->text('progress_notes')->nullable();
             $table->timestamps();
         });
     }

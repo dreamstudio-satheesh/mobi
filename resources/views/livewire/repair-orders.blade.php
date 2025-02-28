@@ -38,7 +38,15 @@
                                         Cancelled</option>
                                 </select>
                             </td>
-                            <td>{{ $order->technician ? $order->technician->first_name : 'Not Assigned' }}</td>
+
+                            @if (Auth::user()->hasRole('repair_technician'))
+                                <td> <a href="{{ route('repairs.progress', $order->id) }}"
+                                        class="btn btn-sm btn-warning">Update Progress</a>
+
+                                </td>
+                            @else
+                                <td>{{ $order->technician ? $order->technician->first_name : 'Not Assigned' }}</td>
+                            @endif
                             <td>
                                 <button wire:click="assignTechnician({{ $order->id }})"
                                     class="btn btn-sm btn-primary">Assign Technician</button>
