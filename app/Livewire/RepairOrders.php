@@ -30,6 +30,7 @@ class RepairOrders extends Component
     {
         $this->selectedOrder = RepairOrder::findOrFail($orderId);
         $this->selectedTechnician = null;
+        $this->dispatch('assignTechnicianModal');
     }
 
     public function saveTechnicianAssignment()
