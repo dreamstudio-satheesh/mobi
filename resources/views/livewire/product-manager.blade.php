@@ -74,8 +74,25 @@
                 <div class="card-body">
                     <form wire:submit.prevent="store">
                         <div class="row">
-                            <!-- Category -->
+                             <!-- Name -->
+                             <div class="form-group mb-2 col-md-4">
+                                <label>Name</label>
+                                <input type="text" class="form-control" wire:model="name">
+                                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                            <!-- Supplier -->
                             <div class="form-group mb-2 col-md-4">
+                                <label>Supplier</label>
+                                <select class="form-control" wire:model="supplier_id">
+                                    <option value="">Select Supplier</option>
+                                    @foreach($suppliers as $supplier)
+                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('supplier_id') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                             <!-- Category -->
+                             <div class="form-group mb-2 col-md-4">
                                 <label>Category</label>
                                 <select class="form-control" wire:model="category_id">
                                     <option value="">Select Category</option>
@@ -85,23 +102,7 @@
                                 </select>
                                 @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
-                            <!-- Supplier -->
-                            <div class="form-group mb-2 col-md-4">
-                                <label>Supplier</label>
-                                <select class="form-control" wire:model="supplier_id">
-                                    <option value="">Select Supplier (Optional)</option>
-                                    @foreach($suppliers as $supplier)
-                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('supplier_id') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-                            <!-- Name -->
-                            <div class="form-group mb-2 col-md-4">
-                                <label>Name</label>
-                                <input type="text" class="form-control" wire:model="name">
-                                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
+                           
                         </div>
                         <div class="row">
                             <!-- Description -->
@@ -120,7 +121,7 @@
                             <div class="form-group mb-2 col-md-4">
                                 <label>Condition</label>
                                 <select class="form-control" wire:model="condition">
-                                    <option value="">Select Condition</option>
+                                    <option value="new">Select Condition</option>
                                     <option value="new">New</option>
                                     <option value="refurbished">Refurbished</option>
                                     <option value="second-hand">Second-hand</option>

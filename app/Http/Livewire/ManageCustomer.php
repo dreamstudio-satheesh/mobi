@@ -15,13 +15,13 @@ class ManageCustomer extends Component
     public $sortDirection = 'asc';
 
     // Properties for the create/edit form
-    public $customerId, $name, $email, $phone;
+    public $customerId, $name, $email, $mobile;
     public $modalFormVisible = false;
 
     protected $rules = [
         'name'  => 'required|min:3',
-        'email' => 'required|email|unique:customers,email',
-        'phone' => 'required',
+        'email' => 'nullable|email',
+        'mobile' => 'required|unique:customers,mobile',
     ];
 
     // Reset pagination when search updates
@@ -69,7 +69,7 @@ class ManageCustomer extends Component
         Customer::create([
             'name'  => $this->name,
             'email' => $this->email,
-            'phone' => $this->phone,
+            'mobile' => $this->mobile,
         ]);
         $this->modalFormVisible = false;
         $this->reset();
@@ -84,7 +84,7 @@ class ManageCustomer extends Component
         $customer = Customer::findOrFail($id);
         $this->name  = $customer->name;
         $this->email = $customer->email;
-        $this->phone = $customer->phone;
+        $this->mobile = $customer->mobile;
         $this->modalFormVisible = true;
     }
 
@@ -93,15 +93,15 @@ class ManageCustomer extends Component
     {
         $rules = [
             'name'  => 'required|min:3',
-            'email' => 'required|email|unique:customers,email,' . $this->customerId,
-            'phone' => 'required',
+            'email' => 'nullable|email',
+            'mobile' => 'required|unique:customers,mobile,' . $this->customerId,
         ];
         $this->validate($rules);
         $customer = Customer::find($this->customerId);
         $customer->update([
             'name'  => $this->name,
             'email' => $this->email,
-            'phone' => $this->phone,
+            'mobile' => $this->mobile,
         ]);
         $this->modalFormVisible = false;
         session()->flash('message', 'Customer successfully updated.');

@@ -94,11 +94,11 @@
                             <span>Repairs</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('repairs/orders') }}">Repair Orders</a></li>
-                            <li><a href="{{ url('repairs/create') }}">Create Repair Order</a></li>
-                            <li><a href="{{ url('repairs/assign') }}">Technician Assignment</a></li>
-                            <li><a href="{{ url('repairs/progress') }}">Repair Progress</a></li>
-                            <li><a href="{{ url('repairs/payment') }}">Payment & Warranty</a></li>
+                            <li><a href="{{ url('/admin/repairs/orders') }}">Repair Orders</a></li>
+                            <li><a href="{{ url('/admin/repairs/create') }}">Create Repair Order</a></li>
+                            <li><a href="{{ url('/admin/repairs/assign') }}">Technician Assignment</a></li>
+                            <li><a href="{{ url('/admin/repairs/progress') }}">Repair Progress</a></li>
+                            <li><a href="{{ url('/admin/repairs/payment') }}">Payment & Warranty</a></li>
                         </ul>
                     </li>
 
@@ -111,9 +111,9 @@
                             <span>Sales & Orders</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('sales/orders') }}">Orders List</a></li>
-                            <li><a href="{{ url('sales/detail') }}">Order Details</a></li>
-                            <li><a href="{{ url('sales/create') }}">Create Sales Order</a></li>
+                            <li><a href="{{ url('/admin/sales/orders') }}">Orders List</a></li>
+                            <li><a href="{{ url('/admin/sales/detail') }}">Order Details</a></li>
+                            <li><a href="{{ url('/admin/sales/create') }}">Create Sales Order</a></li>
                         </ul>
                     </li>
 
@@ -141,10 +141,10 @@
                             <span>Reports</span>
                         </a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{ url('reports/inventory') }}">Inventory Reports</a></li>
-                            <li><a href="{{ url('reports/repairs') }}">Repair Reports</a></li>
-                            <li><a href="{{ url('reports/sales') }}">Sales Reports</a></li>
-                            <li><a href="{{ url('reports/analytics') }}">Analytics Dashboard</a></li>
+                            <li><a href="{{ url('/admin/reports/inventory') }}">Inventory Reports</a></li>
+                            <li><a href="{{ url('/admin/reports/repairs') }}">Repair Reports</a></li>
+                            <li><a href="{{ url('/admin/reports/sales') }}">Sales Reports</a></li>
+                            <li><a href="{{ url('/admin/reports/analytics') }}">Analytics Dashboard</a></li>
                         </ul>
                     </li>
 

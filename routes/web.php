@@ -1,6 +1,8 @@
 <?php
 
 
+use App\Http\Livewire\SalesList;
+use App\Http\Livewire\SalesCreate;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\ManageCustomer;
 use App\Http\Livewire\ProductManager;
@@ -35,6 +37,10 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
    
     // Inventory manager
     Route::get('/inventory', InventoryManager::class)->name('inventory.manager');
+
+    // Sales
+    Route::get('/sales/orders', SalesList::class)->name('sales.list');
+    Route::get('sales/create', SalesCreate::class)->name('sales.create');
 
     // New Product CRUD Livewire route
    Route::get('/products', ProductManager::class)->name('products.manage');

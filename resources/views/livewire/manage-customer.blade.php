@@ -16,7 +16,7 @@
                             <tr>
                                 <th wire:click="sortBy('name')" style="cursor: pointer;">Name</th>
                                 <th wire:click="sortBy('email')" style="cursor: pointer;">Email</th>
-                                <th wire:click="sortBy('phone')" style="cursor: pointer;">Phone</th>
+                                <th wire:click="sortBy('mobile')" style="cursor: pointer;">Mobile</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->email }}</td>
-                                    <td>{{ $customer->phone }}</td>
+                                    <td>{{ $customer->mobile }}</td>
                                     <td>
                                         <button wire:click="edit({{ $customer->id }})"
                                             class="btn btn-warning btn-sm">Edit</button>
@@ -71,9 +71,9 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Phone</label>
-                                                <input type="text" wire:model="phone" class="form-control">
-                                                @error('phone')
+                                                <label class="form-label">mobile</label>
+                                                <input type="text" wire:model="mobile" class="form-control">
+                                                @error('mobile')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

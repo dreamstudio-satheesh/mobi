@@ -18,7 +18,7 @@ class ProductManager extends Component
     public $name;
     public $description;
     public $sku;
-    public $condition; // Options: new, refurbished, second-hand
+    public $condition='new'; // Options: new, refurbished, second-hand
     public $stock = 0;
     public $purchase_price;
     public $selling_price;
@@ -32,11 +32,11 @@ class ProductManager extends Component
     {
         return [
             'category_id'    => 'required|exists:categories,id',
-            'supplier_id'    => 'nullable|exists:suppliers,id',
+            'supplier_id'    => 'required|exists:suppliers,id',
             'name'           => 'required|string|max:255',
             'description'    => 'nullable|string',
             'sku'            => 'required|string|max:255|unique:products,sku,' . $this->productId,
-            'condition'      => 'nullable|in:new,refurbished,second-hand',
+            'condition'      => 'required|in:new,refurbished,second-hand',
             'stock'          => 'required|integer|min:0',
             'purchase_price' => 'required|numeric|min:0',
             'selling_price'  => 'required|numeric|min:0',
