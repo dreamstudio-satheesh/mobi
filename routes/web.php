@@ -42,7 +42,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
     // Sales
     Route::get('/sales/orders', SalesList::class)->name('sales.list');
     Route::get('sales/create', SalesCreate::class)->name('sales.create');
-    Route::get('/admin/sales/detail/{saleId}', SalesInvoice::class)->name('sales.invoice');
+    Route::get('/admin/sales/detail/{saleId}/{template?}', SalesInvoice::class)->name('sales.invoice');
+    Route::get('/admin/sales/invoice/download/{saleId}/{template?}', [SalesInvoice::class, 'downloadPDF'])->name('sales.invoice.download');
 
     // New Product CRUD Livewire route
    Route::get('/products', ProductManager::class)->name('products.manage');

@@ -4,25 +4,32 @@ namespace App\Http\Livewire;
 
 use App\Models\Sale;
 use Livewire\Component;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class SalesInvoice extends Component
 {
     public $sale;
+    public $template;
 
-    public function mount($saleId)
+    public function mount($saleId, $template = 'invoice-1')
     {
         $this->sale = Sale::with(['customer', 'salesItems.product'])->findOrFail($saleId);
+        $this->template = $template; // Default to invoice-1
     }
 
     public function render()
     {
-        return view('livewire.sales-invoice');
+        return view("invoices.{$this->template}", ['sale' => $this->sale]);
     }
 
-    public function printInvoice()
+    public function downloadPDF($saleId, $template = 'invoice-1')
     {
-        return response()->streamDownload(function () {
-            echo view('livewire.sales-invoice', ['sale' => $this->sale])->render();
+        $this->sale = Sale::with(['customer', 'salesItems.product'])->findOrFail($saleId);
+        $this->template = $template; // Default to invoice-1
+        $pdf = Pdf::loadView("invoices.{$this->template}", ['sale' => $this->sale])->setPaper('a4');
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
         }, "Invoice-{$this->sale->invoice_number}.pdf");
     }
 }

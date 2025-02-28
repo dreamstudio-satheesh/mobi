@@ -60,7 +60,7 @@
                             <td>{{ $sale->created_at->format('d-m-Y') }}</td>
                             <td>
                                 <a href="{{ route('admin.sales.invoice', $sale->id) }}" class="btn btn-sm btn-info">View</a>
-                                <a href="{{ route('admin.sales.invoice', $sale->id) }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
+                                <a href="{{ route('admin.sales.invoice.download', ['saleId' => $sale->id, 'template' => 'invoice-1']) }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
                             </td>
                         </tr>
                     @empty
