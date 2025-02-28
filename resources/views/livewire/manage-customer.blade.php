@@ -55,24 +55,24 @@
                                             wire:click="$set('modalFormVisible', false)"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form wire:submit.prevent="{{ $customerId ? 'update' : 'create' }}">
+                                        <form wire:submit="{{ $customerId ? 'update' : 'create' }}">
                                             <div class="mb-3">
                                                 <label class="form-label">Name</label>
-                                                <input type="text" wire:model="name" class="form-control">
+                                                <input type="text" wire:model.live="name" class="form-control">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
-                                                <input type="email" wire:model="email" class="form-control">
+                                                <input type="email" wire:model.live="email" class="form-control">
                                                 @error('email')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">mobile</label>
-                                                <input type="text" wire:model="mobile" class="form-control">
+                                                <input type="text" wire:model.live="mobile" class="form-control">
                                                 @error('mobile')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror

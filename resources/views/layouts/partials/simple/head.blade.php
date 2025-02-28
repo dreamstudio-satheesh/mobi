@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
   <title>{{ config('app.name') }}</title>
   @include('layouts.partials.simple.style')
+  @livewireStyles
 </head>
 <script>
   var baseUrl = "{{ asset('') }}";

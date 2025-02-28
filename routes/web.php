@@ -1,16 +1,18 @@
 <?php
 
 
-use App\Http\Livewire\SalesList;
-use App\Http\Livewire\SalesCreate;
-use App\Http\Livewire\SalesInvoice;
+use App\Livewire\SalesList;
+use App\Livewire\SalesCreate;
+use App\Livewire\RepairOrders;
+use App\Livewire\SalesInvoice;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Livewire\ManageCustomer;
-use App\Http\Livewire\ProductManager;
+use App\Livewire\ManageCustomer;
+use App\Livewire\ProductManager;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\CategoryManager;
-use App\Http\Livewire\SupplierManager;
-use App\Http\Livewire\InventoryManager;
+use App\Livewire\CategoryManager;
+use App\Livewire\SupplierManager;
+use App\Livewire\InventoryManager;
+use App\Livewire\CreateRepairOrder;
 
 Auth::routes();
 
@@ -47,6 +49,10 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
 
     // New Product CRUD Livewire route
    Route::get('/products', ProductManager::class)->name('products.manage');
+
+   // Repair Management
+   Route::get('/repairs', RepairOrders::class)->name('repairs.list');
+   Route::get('/repairs/create', CreateRepairOrder::class)->name('repairs.create');
 
     //Users
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);

@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5>Categories</h5>
-                        <input wire:model.debounce.live.300ms="search" type="text" style="max-width: 300px" class="form-control" placeholder="Search Categories...">
+                        <input wire:model.live.debounce.live.300ms="search" type="text" style="max-width: 300px" class="form-control" placeholder="Search Categories...">
                     </div>
                 </div>
                 <div class="card-body">
@@ -56,16 +56,16 @@
                     <h5>{{ $categoryId ? 'Edit Category' : 'Create Category' }}</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="store">
+                    <form wire:submit="store">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" wire:model="name">
+                            <input type="text" class="form-control" wire:model.live="name">
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="form-group mt-2">
                             <label>Description</label>
-                            <textarea class="form-control" wire:model="description"></textarea>
+                            <textarea class="form-control" wire:model.live="description"></textarea>
                             @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 

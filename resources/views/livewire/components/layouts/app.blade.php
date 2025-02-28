@@ -50,7 +50,7 @@
                             <!-- Page Sidebar Ends-->
                             <div class="page-body">
                                 <!-- Container-fluid starts-->
-                                {{ $slot }}
+                               {{ $slot }}
                                 <!-- Container-fluid Ends-->
                             </div>
                             <!-- footer start-->
@@ -59,7 +59,6 @@
                         </div>
                     </div>
                     @include('layouts.partials.simple.script')
-                    @livewireScripts
                     @include('admin.inc.alerts')
                 </body>
 

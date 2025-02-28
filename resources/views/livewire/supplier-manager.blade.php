@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5>Suppliers</h5>
-                    <input wire:model.debounce.300ms="search" type="text" class="form-control" placeholder="Search Suppliers...">
+                    <input wire:model.live.debounce.300ms="search" type="text" class="form-control" placeholder="Search Suppliers...">
                 </div>
                 <div class="card-body">
                     @if (session()->has('message'))
@@ -59,34 +59,34 @@
                     <h5>{{ $supplierId ? 'Edit Supplier' : 'Create Supplier' }}</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="store">
+                    <form wire:submit="store">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" wire:model="name">
+                            <input type="text" class="form-control" wire:model.live="name">
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="form-group mt-2">
                             <label>Email</label>
-                            <input type="email" class="form-control" wire:model="email">
+                            <input type="email" class="form-control" wire:model.live="email">
                             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="form-group mt-2">
                             <label>Phone</label>
-                            <input type="text" class="form-control" wire:model="phone">
+                            <input type="text" class="form-control" wire:model.live="phone">
                             @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="form-group mt-2">
                             <label>Address</label>
-                            <input type="text" class="form-control" wire:model="address">
+                            <input type="text" class="form-control" wire:model.live="address">
                             @error('address') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="form-group mt-2">
                             <label>Notes</label>
-                            <textarea class="form-control" wire:model="notes"></textarea>
+                            <textarea class="form-control" wire:model.live="notes"></textarea>
                             @error('notes') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 

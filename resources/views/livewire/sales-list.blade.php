@@ -9,10 +9,10 @@
             <div class="row mb-3">
                 <div class="col-md-3">
                     <input type="text" class="form-control" placeholder="Search by customer name, mobile, or invoice"
-                        wire:model.debounce.500ms="search">
+                        wire:model.live.debounce.500ms="search">
                 </div>
                 <div class="col-md-2">
-                    <select class="form-control" wire:model="filterStatus">
+                    <select class="form-control" wire:model.live="filterStatus">
                         <option value="">All Status</option>
                         <option value="pending">Pending</option>
                         <option value="paid">Paid</option>
@@ -20,10 +20,10 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <input type="date" class="form-control" wire:model="dateFrom">
+                    <input type="date" class="form-control" wire:model.live="dateFrom">
                 </div>
                 <div class="col-md-2">
-                    <input type="date" class="form-control" wire:model="dateTo">
+                    <input type="date" class="form-control" wire:model.live="dateTo">
                 </div>
             </div>
         </div>

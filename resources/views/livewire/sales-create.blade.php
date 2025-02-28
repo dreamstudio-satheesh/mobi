@@ -10,7 +10,7 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                     <label>Customer</label>
-                    <select class="form-control" wire:model="customer_id">
+                    <select class="form-control" wire:model.live="customer_id">
                         <option value="">Select Customer</option>
                         @foreach ($customers as $customer)
                             <option value="{{ $customer->id }}">{{ $customer->name }} ({{ $customer->mobile }})</option>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>Payment Method</label>
-                    <select class="form-control" wire:model="payment_method">
+                    <select class="form-control" wire:model.live="payment_method">
                         <option value="cash">Cash</option>
                         <option value="credit_card">Credit Card</option>
                         <option value="upi">UPI</option>
@@ -29,7 +29,7 @@
 
                 <div class="col-md-4">
                     <label>Products</label>
-                    <input type="text" class="form-control mb-3" placeholder="Search products by name or SKU" wire:model="search">
+                    <input type="text" class="form-control mb-3" placeholder="Search products by name or SKU" wire:model.live="search">
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                             <td>{{ $item['name'] }}</td>
                             <td>₹{{ number_format($item['price'], 2) }}</td>
                             <td>
-                                <input type="number" class="form-control" style="max-width:160px" min="1" wire:model="cart.{{ $item['id'] }}.quantity" wire:change="updateQuantity({{ $item['id'] }}, $event.target.value)">
+                                <input type="number" class="form-control" style="max-width:160px" min="1" wire:model.live="cart.{{ $item['id'] }}.quantity" wire:change="updateQuantity({{ $item['id'] }}, $event.target.value)">
                             </td>
                             <td>₹{{ number_format($item['subtotal'], 2) }}</td>
                             <td>

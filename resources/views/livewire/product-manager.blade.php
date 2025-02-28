@@ -7,7 +7,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-8 d-flex">
                                     <h5 class="mt-2">Products</h5>
-                                    <input wire:model.debounce.300ms="search" type="text" style="max-width: 200px" class="form-control ms-2"
+                                    <input wire:model.live.debounce.300ms="search" type="text" style="max-width: 200px" class="form-control ms-2"
                                         placeholder="Search Products...">
                                 </div>
                                 <div class="col-md-4 d-flex justify-content-end">
@@ -72,18 +72,18 @@
                     <h5>{{ $productId ? 'Edit Product' : 'Create Product' }}</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="store">
+                    <form wire:submit="store">
                         <div class="row">
                              <!-- Name -->
                              <div class="form-group mb-2 col-md-4">
                                 <label>Name</label>
-                                <input type="text" class="form-control" wire:model="name">
+                                <input type="text" class="form-control" wire:model.live="name">
                                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <!-- Supplier -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Supplier</label>
-                                <select class="form-control" wire:model="supplier_id">
+                                <select class="form-control" wire:model.live="supplier_id">
                                     <option value="">Select Supplier</option>
                                     @foreach($suppliers as $supplier)
                                         <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
@@ -94,7 +94,7 @@
                              <!-- Category -->
                              <div class="form-group mb-2 col-md-4">
                                 <label>Category</label>
-                                <select class="form-control" wire:model="category_id">
+                                <select class="form-control" wire:model.live="category_id">
                                     <option value="">Select Category</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -108,19 +108,19 @@
                             <!-- Description -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Description</label>
-                                <textarea class="form-control" wire:model="description"></textarea>
+                                <textarea class="form-control" wire:model.live="description"></textarea>
                                 @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <!-- SKU -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>SKU</label>
-                                <input type="text" class="form-control" wire:model="sku">
+                                <input type="text" class="form-control" wire:model.live="sku">
                                 @error('sku') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <!-- Condition -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Condition</label>
-                                <select class="form-control" wire:model="condition">
+                                <select class="form-control" wire:model.live="condition">
                                     <option value="new">Select Condition</option>
                                     <option value="new">New</option>
                                     <option value="refurbished">Refurbished</option>
@@ -133,19 +133,19 @@
                             <!-- Stock -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Stock</label>
-                                <input type="number" class="form-control" wire:model="stock">
+                                <input type="number" class="form-control" wire:model.live="stock">
                                 @error('stock') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <!-- Purchase Price -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Purchase Price</label>
-                                <input type="number" step="0.01" class="form-control" wire:model="purchase_price">
+                                <input type="number" step="0.01" class="form-control" wire:model.live="purchase_price">
                                 @error('purchase_price') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <!-- Selling Price -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Selling Price</label>
-                                <input type="number" step="0.01" class="form-control" wire:model="selling_price">
+                                <input type="number" step="0.01" class="form-control" wire:model.live="selling_price">
                                 @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                             <!-- Discount -->
                             <div class="form-group mb-2 col-md-4">
                                 <label>Discount</label>
-                                <input type="number" step="0.01" class="form-control" wire:model="discount">
+                                <input type="number" step="0.01" class="form-control" wire:model.live="discount">
                                 @error('discount') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>

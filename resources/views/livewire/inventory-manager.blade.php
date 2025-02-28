@@ -54,10 +54,10 @@
                     <h5>Add Transaction</h5>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="store">
+                    <form wire:submit="store">
                         <div class="mb-2">
                             <label>Product</label>
-                            <select class="form-control" wire:model="product_id">
+                            <select class="form-control" wire:model.live="product_id">
                                 <option value="">Select Product</option>
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->name }} (Stock: {{ $product->stock }})</option>
@@ -68,7 +68,7 @@
 
                         <div class="mb-2">
                             <label>Transaction Type</label>
-                            <select class="form-control" wire:model="transaction_type">
+                            <select class="form-control" wire:model.live="transaction_type">
                                 <option value="stock_in">Stock In</option>
                                 <option value="stock_out">Stock Out</option>
                                 <option value="return">Return</option>
@@ -79,13 +79,13 @@
 
                         <div class="mb-2">
                             <label>Quantity</label>
-                            <input type="number" class="form-control" wire:model="quantity">
+                            <input type="number" class="form-control" wire:model.live="quantity">
                             @error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="mb-2">
                             <label>Notes</label>
-                            <textarea class="form-control" wire:model="notes"></textarea>
+                            <textarea class="form-control" wire:model.live="notes"></textarea>
                             @error('notes') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
