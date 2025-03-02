@@ -15,6 +15,7 @@
                         <th>Status</th>
                         <th>Technician</th>
                         <th>Actions</th>
+                        <th>Payment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,15 @@
                                     class="btn btn-sm btn-primary">Assign Technician</button>
                                 @else
                                 {{ $order->repair_progress }}
+                                @endif
+                            </td>
+                            <td>
+                                @if(Auth::user()->hasRole('admin'))
+                                    @if($order->payment_status === 'pending')
+                                        <a href="{{ route('admin.repairs.payment', $order->id) }}" class="btn btn-sm btn-success">Mark as Paid</a>
+                                    @else
+                                        <span class="badge bg-success">Paid</span>
+                                    @endif
                                 @endif
                             </td>
                         </tr>

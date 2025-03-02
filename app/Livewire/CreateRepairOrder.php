@@ -46,7 +46,7 @@ class CreateRepairOrder extends Component
         ]);
 
         session()->flash('success', 'Repair Order Created Successfully!');
-        return redirect()->route('repairs.list');
+        return redirect()->route('admin.repairs.list');
     }
 
     public function render()

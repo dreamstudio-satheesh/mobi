@@ -80,7 +80,6 @@
                             <li><a href="{{ url('/admin/inventory') }}">Overview</a></li>
                             <li><a href="{{ url('/admin/category') }}">Category</a></li>
                             <li><a href="{{ url('/admin/products') }}">Products</a></li>
-                            <li><a href="#">Barcode Scanning</a></li>
                         </ul>
                     </li>
 
@@ -96,8 +95,6 @@
                         <ul class="sidebar-submenu">
                             <li><a href="{{ url('/admin/repairs') }}">Repair Orders</a></li>
                             <li><a href="{{ url('/admin/repairs/create') }}">Create Repair Order</a></li>
-                            <li><a href="{{ url('/admin/repairs/progress') }}">Repair Progress</a></li>
-                            <li><a href="{{ url('/admin/repairs/payment') }}">Payment & Warranty</a></li>
                         </ul>
                     </li>
 
@@ -126,7 +123,7 @@
                         </a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{ url('admin/customers') }}">Customer List</a></li>
-                            <li><a href="{{ url('admin/customers/crm') }}">CRM</a></li>
+                            {{-- <li><a href="{{ url('admin/customers/crm') }}">CRM</a></li> --}}
                             <li><a href="{{ url('admin/suppliers') }}">Suppliers</a></li>
                         </ul>
                     </li>

@@ -25,6 +25,10 @@ return new class extends Migration {
             $table->enum('repair_progress', ['Diagnosis Completed', 'Waiting for Parts', 'Repair Ongoing', 'Quality Check', 'Completed'])->nullable();
             $table->foreignId('technician_id')->nullable()->constrained('users')->onDelete('set null');
             $table->text('progress_notes')->nullable();
+            $table->enum('payment_status', ['pending', 'paid'])->default('pending');
+            $table->enum('payment_method', ['cash', 'upi', 'card', 'bank_transfer'])->nullable();
+            $table->decimal('amount_paid', 10, 2)->nullable();
+            $table->date('warranty_expiry')->nullable();
             $table->timestamps();
         });
     }

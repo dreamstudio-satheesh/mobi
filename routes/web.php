@@ -5,6 +5,7 @@ use App\Livewire\SalesList;
 use App\Livewire\SalesCreate;
 use App\Livewire\RepairOrders;
 use App\Livewire\SalesInvoice;
+use App\Livewire\RepairPayment;
 use App\Livewire\ManageCustomer;
 use App\Livewire\ProductManager;
 use App\Livewire\RepairProgress;
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
    Route::get('/repairs/create', CreateRepairOrder::class)->name('repairs.create');
 
    Route::get('/repairs/progress/{repairOrder}', RepairProgress::class)->name('repairs.progress');
+   Route::get('/admin/repairs/payment/{repairOrder}', RepairPayment::class)->name('repairs.payment');
 
     //Users
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
