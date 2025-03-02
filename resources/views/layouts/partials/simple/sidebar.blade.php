@@ -78,9 +78,9 @@
                         </a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{ url('/admin/inventory') }}">Overview</a></li>
-                            <li><a href="{{ url('inventory/barcode') }}">Barcode Scanning</a></li>
                             <li><a href="{{ url('/admin/category') }}">Category</a></li>
                             <li><a href="{{ url('/admin/products') }}">Products</a></li>
+                            <li><a href="#">Barcode Scanning</a></li>
                         </ul>
                     </li>
 
