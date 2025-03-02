@@ -73,6 +73,8 @@ class ManageCustomer extends Component
         ]);
         $this->modalFormVisible = false;
         $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal'); // Dispatch event to close modal
         session()->flash('message', 'Customer successfully added.');
     }
 

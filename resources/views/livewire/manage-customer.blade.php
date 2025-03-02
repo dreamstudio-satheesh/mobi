@@ -63,13 +63,7 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Email</label>
-                                                <input type="email" wire:model.live="email" class="form-control">
-                                                @error('email')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+                                           
                                             <div class="mb-3">
                                                 <label class="form-label">mobile</label>
                                                 <input type="text" wire:model.live="mobile" class="form-control">
@@ -77,6 +71,15 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" wire:model.live="email" class="form-control">
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
                                             <br>
                                             <div class="modal-footer">
                                                 <button type="button" wire:click="$set('modalFormVisible', false)"
@@ -105,6 +108,24 @@
 
 </div>
 
+@section('scripts')
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('close-modal', () => {
+        document.querySelector('.modal').classList.remove('show', 'd-block');
+        document.querySelector('.modal').setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+
+        let backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    });
+});
+</script>
+    
+@endsection
 
 @section('breadcrumb')
     <div class="col-auto header-right-wrapper page-title">
