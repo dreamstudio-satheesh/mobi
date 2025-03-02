@@ -24,7 +24,7 @@
                             <td>{{ $order->customer->name }}</td>
                             <td>{{ $order->device_brand }} - {{ $order->device_model }}</td>
                             <td>
-                                <select wire:change="updateStatus({{ $order->id }}, $event.target.value)"
+                                <select wire:live.change="updateStatus({{ $order->id }}, $event.target.value)"
                                     class="form-select">
                                     <option value="Pending" {{ $order->status == 'Pending' ? 'selected' : '' }}>Pending
                                     </option>
@@ -40,7 +40,7 @@
                             </td>
 
                             @if (Auth::user()->hasRole('repair_technician'))
-                                <td> <a href="{{ route('repairs.progress', $order->id) }}"
+                                <td> <a href="{{ route('admin.repairs.progress', $order->id) }}"
                                         class="btn btn-sm btn-warning">Update Progress</a>
 
                                 </td>
@@ -48,8 +48,12 @@
                                 <td>{{ $order->technician ? $order->technician->first_name : 'Not Assigned' }}</td>
                             @endif
                             <td>
+                                @if (Auth::user()->hasRole('admin'))
                                 <button wire:click="assignTechnician({{ $order->id }})"
                                     class="btn btn-sm btn-primary">Assign Technician</button>
+                                @else
+                                {{ $order->repair_progress }}
+                                @endif
                             </td>
                         </tr>
                     @endforeach

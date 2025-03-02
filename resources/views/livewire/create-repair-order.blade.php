@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('admin.repairs.list') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ url('admin/repairs') }}" class="btn btn-secondary">Cancel</a>
                             <button type="submit" class="btn btn-primary">Create Repair Order</button>
                         </div>
                     </form>

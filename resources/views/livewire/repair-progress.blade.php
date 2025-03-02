@@ -16,17 +16,21 @@
                 </div>
             @endif
 
-            <h6>Current Status: <span class="badge bg-primary">{{ $repairOrder->status }}</span></h6>
+            <h6>Order Status: <span class="badge bg-primary">{{ $repairOrder->status }}</span></h6>
+
+            <h6>Repair Status: <span class="badge bg-primary">{{ $repairOrder->repair_progress }}</span></h6>
+
+            <br>
 
             <form wire:submit.prevent="updateProgress">
                 <div class="mb-3">
-                    <label class="form-label">Update Status</label>
-                    <select wire:model="status" class="form-select">
+                    <label class="form-label">Update Progress</label>
+                    <select wire:model="repair_progress" class="form-select">
                         @foreach ($repair_steps as $step)
                             <option value="{{ $step }}">{{ $step }}</option>
                         @endforeach
                     </select>
-                    @error('status') <small class="text-danger">{{ $message }}</small> @enderror
+                    @error('repair_progress') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
 
                 <div class="mb-3">

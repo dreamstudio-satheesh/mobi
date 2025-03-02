@@ -96,7 +96,6 @@
                         <ul class="sidebar-submenu">
                             <li><a href="{{ url('/admin/repairs') }}">Repair Orders</a></li>
                             <li><a href="{{ url('/admin/repairs/create') }}">Create Repair Order</a></li>
-                            <li><a href="{{ url('/admin/repairs/assign') }}">Technician Assignment</a></li>
                             <li><a href="{{ url('/admin/repairs/progress') }}">Repair Progress</a></li>
                             <li><a href="{{ url('/admin/repairs/payment') }}">Payment & Warranty</a></li>
                         </ul>

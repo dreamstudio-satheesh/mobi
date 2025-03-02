@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Helpers\Helpers;
 use Spatie\MediaLibrary\HasMedia;
-use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HasRoles; // ✅ Import HasRoles
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;

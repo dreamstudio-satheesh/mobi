@@ -11,7 +11,7 @@ class RepairProgress extends Component
 {
     public $repairOrder;
     public $progress_notes;
-    public $status;
+    public $repair_progress;
     public $repair_steps = [
         'Diagnosis Completed',
         'Waiting for Parts',
@@ -22,13 +22,13 @@ class RepairProgress extends Component
 
     protected $rules = [
         'progress_notes' => 'required|string|max:500',
-        'status' => 'required|in:Diagnosis Completed,Waiting for Parts,Repair Ongoing,Quality Check,Completed'
+        'repair_progress' => 'required|in:Diagnosis Completed,Waiting for Parts,Repair Ongoing,Quality Check,Completed'
     ];
 
     public function mount(RepairOrder $repairOrder)
     {
         $this->repairOrder = $repairOrder;
-        $this->status = $repairOrder->status;
+        $this->repair_progress = $repairOrder->repair_progress;
     }
 
     public function updateProgress()
@@ -43,7 +43,7 @@ class RepairProgress extends Component
 
         // Update Repair Order Status
         $this->repairOrder->update([
-            'status' => $this->status,
+            'repair_progress' => $this->repair_progress,
             'progress_notes' => now()->format('d M Y H:i') . " - " . Auth::user()->name . ": " . $this->progress_notes
         ]);
 

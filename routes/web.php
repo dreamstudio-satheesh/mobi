@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.', 'prefix' => 'admin'], 
    Route::get('/repairs', RepairOrders::class)->name('repairs.list');
    Route::get('/repairs/create', CreateRepairOrder::class)->name('repairs.create');
 
-   Route::get('/repairs/progress/{repairOrder}', RepairProgress::class)->name('repairs.progress')->middleware('role:repair_technician');
+   Route::get('/repairs/progress/{repairOrder}', RepairProgress::class)->name('repairs.progress');
 
     //Users
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
